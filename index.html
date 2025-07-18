@@ -1,0 +1,349 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FATAFAT JOBS - Your Ultimate Government Update Portal</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f1f5f9;
+            color: #334155;
+        }
+        .header-bg {
+            background-image: linear-gradient(135deg, rgba(79, 70, 229, 0.95) 0%, rgba(124, 58, 237, 0.9) 100%), url('https://www.transparenttextures.com/patterns/subtle-prism.png');
+            background-size: cover;
+            background-position: center;
+        }
+        .main-heading { font-family: 'Poppins', sans-serif; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); }
+        .sub-heading { font-family: 'Poppins', sans-serif; font-weight: 400; }
+        .section-card {
+            background-color: #ffffff;
+            border-radius: 1.25rem;
+            box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            padding: 1.5rem;
+            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+            border: 1px solid #e2e8f0;
+        }
+        .section-card:hover { transform: translateY(-8px); box-shadow: 0 15px 30px -8px rgba(0, 0, 0, 0.2), 0 6px 10px -3px rgba(0, 0, 0, 0.08); }
+        .section-title { font-family: 'Poppins', sans-serif; color: #4f46e5; font-weight: 700; border-bottom: 3px solid #a5b4fc; padding-bottom: 0.75rem; margin-bottom: 1.5rem; display: flex; align-items: center; }
+        .section-title svg { color: #6366f1; margin-right: 0.75rem; }
+        .link-item { display: flex; align-items: center; justify-content: space-between; padding: 1rem; margin-bottom: 0.75rem; background-color: #f8fafc; border-radius: 0.75rem; transition: all 0.2s ease-in-out; border-left: 5px solid #818cf8; }
+        .link-item:hover { background-color: #eef2ff; transform: translateY(-3px); box-shadow: 0 4px 10px -2px rgba(0, 0, 0, 0.1); }
+        .link-item-button { color: #4338ca; font-weight: 600; text-decoration: none; flex-grow: 1; text-align: left; background: none; border: none; cursor: pointer; }
+        .link-item-button:hover { text-decoration: underline; }
+        .new-badge { background-color: #ef4444; color: #ffffff; font-size: 0.75rem; font-weight: 700; padding: 0.25rem 0.6rem; border-radius: 0.5rem; margin-left: 0.75rem; animation: pulse 1.5s infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
+        footer { background-color: #1e293b; color: #cbd5e1; font-family: 'Poppins', sans-serif; }
+        footer a:hover { color: #bfdbfe; }
+        #searchInput { font-family: 'Inter', sans-serif; }
+        .coming-soon-item { border-left-color: #f59e0b; }
+        
+        .highlight-section {
+            background: #ffffff;
+            border-radius: 1rem;
+            padding: 1.25rem;
+            margin-top: -2rem;
+            position: relative;
+            box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.2);
+            border: 1px solid #e2e8f0;
+        }
+        .highlight-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            color: #3730a3;
+            text-shadow: 1px 1px 0px #a5b4fc, 2px 2px 0px rgba(0,0,0,0.1);
+        }
+        .highlight-item {
+            background-color: #f1f5f9;
+            border-radius: 0.75rem;
+            padding: 1rem;
+            transition: all 0.3s ease;
+        }
+        .highlight-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+        
+        .detail-heading { font-family: 'Poppins', sans-serif; font-weight: 700; color: #4f46e5; margin-top: 1.5rem; margin-bottom: 0.75rem; border-bottom: 2px solid #eef2ff; padding-bottom: 0.5rem; }
+        .detail-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
+        .detail-item { background: #f8fafc; padding: 0.75rem; border-radius: 0.5rem; border: 1px solid #e2e8f0; }
+        .detail-item strong { color: #4338ca; }
+
+        .admin-controls { display: none; }
+    </style>
+</head>
+<body oncontextmenu="return false;">
+
+    <!-- Header -->
+    <header class="header-bg text-white shadow-lg py-6 pb-12">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div>
+                <div class="flex items-center text-3xl md:text-4xl font-extrabold main-heading">
+                    <i class="fas fa-rocket mr-3"></i>
+                    <span>FATAFAT JOBS</span>
+                </div>
+                <p class="mt-1 text-sm sub-heading opacity-90" data-key="subtitle">सबसे तेज अपडेट 🚀</p>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="relative">
+                    <select id="language-selector" class="bg-white bg-opacity-20 text-white font-bold py-2 pl-4 pr-10 rounded-full appearance-none focus:outline-none cursor-pointer">
+                        <option value="en" class="text-black">English</option>
+                        <option value="hi" class="text-black">हिन्दी</option>
+                    </select>
+                    <i class="fas fa-globe absolute right-4 top-1/2 -translate-y-1/2 text-white opacity-80 pointer-events-none"></i>
+                </div>
+                <button id="loginBtn" class="bg-white text-indigo-600 font-bold py-2 px-4 rounded-lg hover:bg-indigo-100 transition duration-300">
+                    <i class="fas fa-sign-in-alt mr-2"></i><span data-key="login">Admin Login</span>
+                </button>
+                <button id="logoutBtn" class="hidden bg-red-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-red-600 transition duration-300">
+                    <i class="fas fa-sign-out-alt mr-2"></i><span data-key="logout">Logout</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Page Content -->
+    <div id="main-page">
+        <main class="container mx-auto px-4">
+            
+            <section id="highlight-section" class="highlight-section mb-8">
+                <h2 class="text-xl md:text-2xl font-bold text-center mb-4 highlight-title" data-key="highlights_title">Important Updates</h2>
+                <div id="highlight-list" class="grid grid-cols-1 md:grid-cols-3 gap-4"></div>
+            </section>
+
+            <div id="state-filter-container" class="bg-blue-100 border-l-4 border-blue-500 text-blue-800 p-4 rounded-lg mb-6 flex flex-col sm:flex-row items-center gap-4">
+                <label for="state-selector" class="font-bold flex-grow" data-key="state_select_label">Showing updates for:</label>
+                <select id="state-selector" class="bg-white border border-gray-300 rounded-lg p-2 w-full sm:w-auto">
+                    <option value="All India">All India</option>
+                </select>
+            </div>
+
+            <div class="mb-8 relative">
+                <input type="text" id="searchInput" class="w-full p-4 pl-12 text-lg border-2 border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition" data-key-placeholder="search_placeholder">
+                <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-xl"></i>
+            </div>
+            
+            <div id="admin-welcome" class="hidden bg-green-100 border-l-4 border-green-500 text-green-700 p-4 rounded-lg mb-6" role="alert">
+                <p class="font-bold" data-key="welcome_admin">Welcome, Admin!</p>
+                <p data-key="welcome_admin_desc">Aap ab har section mein listings jod, edit, ya delete kar sakte hain.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <section id="jobs" class="section-card"><h2 class="section-title"><i class="fas fa-briefcase w-8 h-8"></i><span data-key="jobs_title">Latest Job Updates</span></h2><div id="job-list" class="space-y-3"></div><div class="admin-controls mt-4"><button onclick="openAdminModal('jobs', 'Job')" class="w-full bg-indigo-500 text-white py-2 px-4 rounded-lg hover:bg-indigo-600"><i class="fas fa-plus mr-2"></i><span data-key="add_new_job">Add New Job</span></button></div></section>
+                <section id="schemes" class="section-card"><h2 class="section-title"><i class="fas fa-landmark w-8 h-8"></i><span data-key="schemes_title">Government Schemes</span></h2><div id="scheme-list" class="space-y-3"></div><div class="admin-controls mt-4"><button onclick="openAdminModal('schemes', 'Scheme')" class="w-full bg-indigo-500 text-white py-2 px-4 rounded-lg hover:bg-indigo-600"><i class="fas fa-plus mr-2"></i><span data-key="add_new_scheme">Add New Scheme</span></button></div></section>
+                <section id="results" class="section-card"><h2 class="section-title"><i class="fas fa-poll w-8 h-8"></i><span data-key="results_title">Latest Results</span></h2><div id="result-list" class="space-y-3"></div><div class="admin-controls mt-4"><button onclick="openAdminModal('results', 'Result')" class="w-full bg-indigo-500 text-white py-2 px-4 rounded-lg hover:bg-indigo-600"><i class="fas fa-plus mr-2"></i><span data-key="add_new_result">Add New Result</span></button></div></section>
+                <section id="admit-cards" class="section-card"><h2 class="section-title"><i class="fas fa-id-card w-8 h-8"></i><span data-key="admit_cards_title">Admit Cards</span></h2><div id="admit-card-list" class="space-y-3"></div><div class="admin-controls mt-4"><button onclick="openAdminModal('admit-cards', 'Admit Card')" class="w-full bg-indigo-500 text-white py-2 px-4 rounded-lg hover:bg-indigo-600"><i class="fas fa-plus mr-2"></i><span data-key="add_admit_card">Add Admit Card</span></button></div></section>
+                <section id="admission-notifications" class="section-card"><h2 class="section-title"><i class="fas fa-university w-8 h-8"></i><span data-key="admissions_title">Admission Notifications</span></h2><div id="admission-list" class="space-y-3"></div><div class="admin-controls mt-4"><button onclick="openAdminModal('admissions', 'Admission')" class="w-full bg-indigo-500 text-white py-2 px-4 rounded-lg hover:bg-indigo-600"><i class="fas fa-plus mr-2"></i><span data-key="add_admission">Add Admission</span></button></div></section>
+                <section id="scholarship-notifications" class="section-card"><h2 class="section-title"><i class="fas fa-graduation-cap w-8 h-8"></i><span data-key="scholarships_title">Scholarship Notifications</span></h2><div id="scholarship-list" class="space-y-3"></div><div class="admin-controls mt-4"><button onclick="openAdminModal('scholarships', 'Scholarship')" class="w-full bg-indigo-500 text-white py-2 px-4 rounded-lg hover:bg-indigo-600"><i class="fas fa-plus mr-2"></i><span data-key="add_scholarship">Add Scholarship</span></button></div></section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Details Page Content -->
+    <div id="details-page" class="hidden">
+        <main class="container mx-auto px-4 py-8">
+            <button onclick="showMainPage()" class="mb-6 bg-white text-slate-700 font-bold py-2 px-4 rounded-lg hover:bg-slate-100 transition duration-300 border border-slate-300">
+                <i class="fas fa-arrow-left mr-2"></i><span data-key="back_button">Back to Home</span>
+            </button>
+            <div class="bg-white p-6 rounded-2xl shadow-lg">
+                <h2 id="details-title" class="text-3xl font-bold text-indigo-800 mb-4"></h2>
+                <div id="details-body"></div>
+                <div class="mt-6 text-center">
+                    <a id="details-url" href="#" target="_blank" rel="noopener noreferrer" class="inline-block bg-indigo-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-indigo-700 transition">Official Link</a>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer mt-12 py-8"><div class="container mx-auto px-4 text-center"><p class="font-semibold" data-key="copyright">&copy; 2024 FATAFAT JOBS. All Rights Reserved.</p><p class="mt-2 text-slate-400 text-sm" data-key="designed_for">Designed for Public Information</p><div class="flex justify-center space-x-6 mt-4 text-2xl"><a href="https://www.instagram.com/ASHISH_RAJ_AAHISH" target="_blank" class="text-slate-400 hover:text-white transition"><i class="fab fa-instagram"></i></a><a href="https://t.me/ASHISH_RAJ_AAHISH" target="_blank" class="text-slate-400 hover:text-white transition"><i class="fab fa-telegram-plane"></i></a><a href="https://www.facebook.com/ASHISH_RAJ_AAHISH" target="_blank" class="text-slate-400 hover:text-white transition"><i class="fab fa-facebook"></i></a></div><p class="mt-4 text-sm text-slate-500">Contact: <a href="mailto:ashishyadav62064c@gmail.com" class="hover:text-white">ashishyadav62064c@gmail.com</a></p></div></footer>
+    
+    <script type="module">
+        // Import Firebase modules
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged, signInAnonymously } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, collection, onSnapshot, addDoc, doc, updateDoc, deleteDoc, serverTimestamp, getDoc, query, where, setDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // --- CONFIGURATION ---
+        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : { apiKey: "YOUR_API_KEY", authDomain: "YOUR_AUTH_DOMAIN", projectId: "YOUR_PROJECT_ID", storageBucket: "YOUR_STORAGE_BUCKET", messagingSenderId: "YOUR_SENDER_ID", appId: "YOUR_APP_ID" };
+        const ADMIN_EMAIL = "ashishyadav62064c@gmail.com"; 
+
+        // --- INITIALIZE FIREBASE ---
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+
+        // --- GLOBAL STATE & CONSTANTS ---
+        let userState = "All India";
+        let currentLang = 'en';
+        const sections = {'jobs': 'job-list', 'schemes': 'scheme-list', 'results': 'result-list', 'admit-cards': 'admit-card-list', 'admissions': 'admission-list', 'scholarships': 'scholarship-list'};
+        const indianStates = ["Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh", "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jharkhand", "Karnataka", "Kerala", "Madhya Pradesh", "Maharashtra", "Manipur", "Meghalaya", "Mizoram", "Nagaland", "Odisha", "Punjab", "Rajasthan", "Sikkim", "Tamil Nadu", "Telangana", "Tripura", "Uttar Pradesh", "Uttarakhand", "West Bengal", "Andaman and Nicobar Islands", "Chandigarh", "Dadra and Nagar Haveli and Daman and Diu", "Delhi", "Jammu and Kashmir", "Ladakh", "Lakshadweep", "Puducherry"];
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+
+        // --- UI ELEMENTS ---
+        const mainPage = document.getElementById('main-page');
+        const detailsPage = document.getElementById('details-page');
+        const languageSelector = document.getElementById('language-selector');
+        const stateSelector = document.getElementById('state-selector');
+        const searchInput = document.getElementById('searchInput');
+        const detailsTitle = document.getElementById('details-title');
+        const detailsBody = document.getElementById('details-body');
+        const detailsUrl = document.getElementById('details-url');
+        const loginBtn = document.getElementById('loginBtn');
+        const logoutBtn = document.getElementById('logoutBtn');
+        const adminWelcome = document.getElementById('admin-welcome');
+        
+        // --- TRANSLATION DATA ---
+        const translations = {
+            en: {
+                title: "FATAFAT JOBS",
+                subtitle: "The Fastest Updates �",
+                state_select_label: "Showing updates for:",
+                jobs_title: "Latest Job Updates", schemes_title: "Government Schemes", results_title: "Latest Results",
+                admit_cards_title: "Admit Cards", admissions_title: "Admission Notifications", scholarships_title: "Scholarship Notifications",
+                highlights_title: "Important Updates",
+                no_updates: "No updates available for this state.",
+                search_placeholder: "Search for jobs, schemes, results...",
+                no_results: "No matching items found.",
+                copyright: "© 2024 FATAFAT JOBS. All Rights Reserved.",
+                designed_for: "Designed for Public Information",
+                back_button: "Back to Home",
+                login: "Admin Login",
+                logout: "Logout",
+                welcome_admin: "Welcome, Admin!",
+                welcome_admin_desc: "You can now add, edit, or delete listings in each section.",
+                add_new_job: "Add New Job", add_new_scheme: "Add New Scheme", add_new_result: "Add New Result",
+                add_admit_card: "Add Admit Card", add_admission: "Add Admission", add_scholarship: "Add Scholarship",
+                login_popup_blocked: "Login popup was blocked by the browser. Please allow popups for this site.",
+                login_failed: "Login failed. Please try again.",
+                seeding_data: "Setting up the website with the latest updates for the first time. Please wait...",
+                seeding_complete: "Initial setup complete! You can now manage all the content.",
+            },
+            hi: {
+                title: "फटाफट जॉब्स",
+                subtitle: "सबसे तेज अपडेट 🚀",
+                state_select_label: "इनके लिए अपडेट्स:",
+                jobs_title: "नवीनतम जॉब अपडेट्स", schemes_title: "सरकारी योजनाएं", results_title: "नवीनतम परिणाम",
+                admit_cards_title: "एडमिट कार्ड", admissions_title: "प्रवेश सूचनाएं", scholarships_title: "छात्रवृत्ति सूचनाएं",
+                highlights_title: "महत्वपूर्ण अपडेट्स",
+                no_updates: "इस राज्य के लिए कोई अपडेट उपलब्ध नहीं है।",
+                search_placeholder: "जॉब्स, स्कीम्स, रिजल्ट्स खोजें...",
+                no_results: "कोई मेल खाने वाला आइटम नहीं मिला।",
+                copyright: "© 2024 फटाफट जॉब्स। सर्वाधिकार सुरक्षित।",
+                designed_for: "सार्वजनिक सूचना के लिए डिज़ाइन किया गया",
+                back_button: "वापस जाएं",
+                login: "एडमिन लॉगिन",
+                logout: "लॉगआउट",
+                welcome_admin: "आपका स्वागत है, एडमिन!",
+                welcome_admin_desc: "आप अब हर सेक्शन में लिस्टिंग जोड़, संपादित या हटा सकते हैं।",
+                add_new_job: "नई जॉब जोड़ें", add_new_scheme: "नई योजना जोड़ें", add_new_result: "नया परिणाम जोड़ें",
+                add_admit_card: "नया एडमिट कार्ड जोड़ें", add_admission: "नया प्रवेश जोड़ें", add_scholarship: "नई छात्रवृत्ति जोड़ें",
+                login_popup_blocked: "लॉगिन पॉपअप ब्राउज़र द्वारा ब्लॉक कर दिया गया था। कृपया इस साइट के लिए पॉपअप की अनुमति दें।",
+                login_failed: "लॉगिन विफल रहा। कृपया दोबारा प्रयास करें।",
+                seeding_data: "पहली बार वेबसाइट को नवीनतम अपडेट के साथ सेट किया जा रहा है। कृपया प्रतीक्षा करें...",
+                seeding_complete: "प्रारंभिक सेटअप पूरा हो गया! अब आप सभी सामग्री का प्रबंधन कर सकते हैं।",
+            }
+        };
+
+        // --- HELPER & CORE FUNCTIONS ---
+        const setLanguage = (lang) => {
+            currentLang = lang;
+            document.querySelectorAll('[data-key]').forEach(el => {
+                const key = el.getAttribute('data-key');
+                if (translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+             document.querySelectorAll('[data-key-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-key-placeholder');
+                if (translations[lang][key]) {
+                    el.placeholder = translations[lang][key];
+                }
+            });
+        };
+        
+        const createItemHTML = (item, category) => {
+            const isNewBadge = item.isNew ? `<span class="new-badge">NEW</span>` : '';
+            return `<div class="link-item"><div class="flex-grow"><button onclick="showDetailsPage('${category}', '${item.id}')" class="link-item-button">${item.title}</button>${item.qualification ? `<p class="text-xs text-slate-500 mt-1"><strong>Qual:</strong> ${item.qualification}</p>` : ''}${item.eligibility ? `<p class="text-xs text-slate-500 mt-1"><strong>Elig:</strong> ${item.eligibility}</p>` : ''}${item.fees ? `<p class="text-xs text-slate-500 mt-1"><strong>Fees:</strong> ${item.fees}</p>` : ''}${item.state ? `<p class="text-xs text-slate-400 mt-1"><strong>State:</strong> ${item.state}</p>` : ''}</div><div class="flex items-center ml-2">${isNewBadge}</div></div>`;
+        };
+        
+        const createHighlightItemHTML = (item, category) => {
+             const isNewBadge = item.isNew ? `<span class="new-badge">NEW</span>` : '';
+            return `<div class="highlight-item"><div class="flex-grow"><button onclick="showDetailsPage('${category}', '${item.id}')" class="font-bold text-indigo-700 hover:underline text-left">${item.title}</button>${item.eligibility ? `<p class="text-xs text-slate-500 mt-1">${item.eligibility}</p>` : ''}${item.state ? `<p class="text-xs text-slate-400 mt-1"><strong>State:</strong> ${item.state}</p>` : ''}</div><div class="flex items-center ml-2">${isNewBadge}</div></div>`;
+        }
+
+        const renderContent = (allData) => {
+            const selectedState = stateSelector.value;
+            const searchTerm = searchInput.value.toLowerCase().trim();
+
+            for (const [collectionName, listId] of Object.entries(sections)) {
+                const listElement = document.getElementById(listId);
+                const itemsForSection = allData[collectionName] || [];
+                
+                const filteredItems = itemsForSection.filter(item => {
+                    const stateMatch = selectedState === 'All India' || item.state === 'All India' || item.state === selectedState;
+                    if (!stateMatch) return false;
+
+                    if (searchTerm) {
+                        const searchString = `${item.title} ${item.qualification || ''} ${item.eligibility || ''} ${item.tags.join(' ')}`.toLowerCase();
+                        return searchString.includes(searchTerm);
+                    }
+                    return true;
+                });
+
+                listElement.innerHTML = filteredItems.map(item => createItemHTML(item, collectionName)).join('') || `<p class="text-slate-500 text-sm p-4">${translations[currentLang].no_updates}</p>`;
+                
+                const noResultsMessage = listElement.nextElementSibling;
+                if (noResultsMessage && noResultsMessage.classList.contains('no-results-message')) {
+                    noResultsMessage.style.display = (filteredItems.length === 0 && itemsForSection.length > 0) ? 'block' : 'none';
+                }
+            }
+
+            const highlightList = document.getElementById('highlight-list');
+            const highlightItems = allData.highlights.map(h => {
+                const item = allData[h.category]?.find(item => item.id === h.id);
+                return item ? { ...item, category: h.category } : null;
+            }).filter(Boolean);
+            highlightList.innerHTML = highlightItems.map(item => createHighlightItemHTML(item, item.category)).join('');
+        };
+
+        // --- Page Navigation Functions ---
+        window.showDetailsPage = (category, id) => {
+            // This function will now be populated by Firestore data
+        };
+
+        window.showMainPage = () => {
+            detailsPage.classList.add('hidden');
+            mainPage.classList.remove('hidden');
+        };
+
+        // --- MAIN APP INITIALIZATION ---
+        const main = () => {
+            stateSelector.innerHTML += indianStates.map(state => `<option value="${state}">${state}</option>`).join('');
+
+            languageSelector.addEventListener('change', (e) => setLanguage(e.target.value));
+            
+            document.addEventListener('keydown', function (e) {
+                if (e.ctrlKey && (e.key === 'c' || e.key === 'u' || e.key === 's' || e.key === 'p')) {
+                    e.preventDefault();
+                }
+            });
+
+            setLanguage('en');
+            // Data loading will be handled by Firebase onAuthStateChanged
+        };
+
+        main();
+
+    </script>
+</body>
+</html>
+�
